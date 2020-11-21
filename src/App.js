@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import components
 import AppLogo from "./components/AppLogo";
 import LogInForm from "./components/LogInForm";
+import RegisterForm from "./components/RegisterForm";
 import NewAccountButton from "./components/NewAccountButton";
 
 
@@ -13,14 +14,22 @@ class App extends Component {
   }
 
   onNewAccountButtonClick(){
-    this.setState({ newUser : true})
+    this.setState({ newUser : true })
     console.log("Create Account Button has been clicked!");
   }
 
   render() {
     if (this.state.newUser){
       return (
-        <h3>New User</h3>
+        <div className="App" class="container-fluid">
+
+          <AppLogo/>
+          <RegisterForm/>
+          <NewAccountButton
+            onNewAccountButtonClick={this.onNewAccountButtonClick}
+          />
+
+        </div>
       );
     }
     else{
