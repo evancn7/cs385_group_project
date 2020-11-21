@@ -4,15 +4,29 @@ import AppLogo from "./components/AppLogo";
 import LogInForm from "./components/LogInForm";
 import NewAccountButton from "./components/NewAccountButton";
 
+let newUser = false; // boolean flag to conditionally render LogIn/Register form
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {  };
+    this.onNewAccountButtonClick = this.onNewAccountButtonClick.bind(this);
+  }
+
+  onNewAccountButtonClick(){
+    newUser = true;
+    console.log("Create Account Button has been clicked!");
+  }
+
   render() {
-    // let members = ["Chris Boland", "Pavel", "Cristina Glez", "Evan Campion"];
     return (
-      <div className="App">
+      <div className="App" class="container-fluid">
 
         <AppLogo/>
         <LogInForm/>
-        <NewAccountButton/>
+        <NewAccountButton
+          onNewAccountButtonClick={this.onNewAccountButtonClick}
+        />
 
       </div>
     );

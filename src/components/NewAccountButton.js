@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 class NewAccountButton extends Component {
   render() {
+    const onButtonClick = this.props.onNewAccountButtonClick;
     return (
       <div class="new-account-container">
-        <button>Create New Account</button>
+        <button onClick={onButtonClick}>Create New Account</button>
       </div>
     );
   }
