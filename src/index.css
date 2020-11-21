@@ -27,8 +27,10 @@ code {
   margin: 10px;
 }
 
-.log-in-button-container {
+.log-in-button-container, .register-button-container {
   border: solid;
+  display: flex;
+  justify-content: center;
 }
 
 .form-container {
