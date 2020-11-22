@@ -14,8 +14,13 @@ class App extends Component {
   }
 
   onNewAccountButtonClick(){
-    this.setState({ newUser : true })
-    console.log("Create Account Button has been clicked!");
+    // toggle newUser, assumed true, switched to false on Create New Account
+    if (this.state.newUser){
+      this.setState({ newUser : false })
+    }
+    else{
+      this.setState({ newUser : true })
+    }
   }
 
   render() {
@@ -27,6 +32,7 @@ class App extends Component {
           <RegisterForm/>
           <NewAccountButton
             onNewAccountButtonClick={this.onNewAccountButtonClick}
+            userState={this.state.newUser}
           />
 
         </div>
