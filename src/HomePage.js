@@ -12,15 +12,15 @@ class HomePage extends Component {
 
   async componentDidMount() {
     try {
-      const API_ID = '';
-      const API_KEY = '';
+      const searchTerm = "chicken";
+      const API_ID = '9b339504';
+      const API_KEY = 'de03aa2242cdbbc05811e7f119dd82b4';
       const API_URL =
-        'https://api.edamam.com/api/food-database/v2/parser?ingr=red%20apple&app_id=${API_ID}&app_key=${API_KEY}';
-      console.log(API_URL);
+        `https://api.edamam.com/api/food-database/v2/parser?ingr=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}`;
       const response = await fetch(API_URL);
       const jsonResult = await response.json();
 
-      this.setState({ apiData: jsonResult.results });
+      this.setState({ apiData: jsonResult.parsed });
       this.setState({ isFetched: true });
     } catch (error) {
       this.setState({ isFetched: false });
@@ -45,7 +45,23 @@ class HomePage extends Component {
       );
     } else {
       return (
-        <div className="HomePage">
+        <div className="HomePage" class="container-fluid">
+        <table className="table table-sm table-bordered">
+          <tr>
+            <th>Food Label</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Fat</th>
+          </tr>
+          {this.state.apiData.map((s) => (
+          <tr key={s.food.foodId}>
+            <td>{s.food.label}</td>
+            <td>{s.food.nutrients.ENERC_KCAL}</td>
+            <td>{s.food.nutrients.PROCNT}</td>
+            <td>{s.food.nutrients.FAT}</td>
+          </tr>
+          ))}
+        </table>
         </div>
       );
     }
