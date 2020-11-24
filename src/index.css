@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app-logo, .new-account-container {
+  text-align: center;
+  height: 20vh;
+  padding: 25px;
+  border: solid;
+  margin: 10px;
+}
+
+.log-in-container {
+  height: 50vh;
+  padding: 25px;
+  border: solid;
+  margin: 10px;
+}
+
+.log-in-button-container {
+  border: solid;
+}
+
+.form-container {
+  border: solid;
+  padding: 10px;
+}
+
+.user-input-container {
+}
