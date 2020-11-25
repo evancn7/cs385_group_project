@@ -47,28 +47,30 @@ class HomePage extends Component {
       );
     } else {
       return (
-        <NavBar/>
-        <div className="HomePage" class="container-fluid">
-        <input type="text" placeholder="Enter food item.."></input>&nbsp;
-        <button type="button" className="btn btn">Search</button>
-        <table className="table table-sm table-bordered">
-          <tr>
-            <th>Food</th>
-            <th>Calories</th>
-            <th>Protein</th>
-            <th>Fat</th>
-            <th>Qty</th>
-          </tr>
-          {this.state.apiData.map((s) => (
-          <tr key={s.food.foodId}>
-            <td>{s.food.label}</td>
-            <td>{s.food.nutrients.ENERC_KCAL}</td>
-            <td>{s.food.nutrients.PROCNT}</td>
-            <td>{s.food.nutrients.FAT}</td>
-            <td><button type="button" className="btn btn-dark">+/-</button></td>
-          </tr>
-          ))}
-        </table>
+        <div className="HomePage">
+          <NavBar/>
+          <div class="container-fluid">
+            <input type="text" placeholder="Enter food item.."></input>&nbsp;
+            <button type="button" className="btn btn">Search</button>
+            <table className="table table-sm table-bordered">
+              <tr>
+                <th>Food</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Fat</th>
+                <th>Qty</th>
+              </tr>
+              {this.state.apiData.map((s) => (
+              <tr key={s.food.foodId}>
+                <td>{s.food.label}</td>
+                <td>{s.food.nutrients.ENERC_KCAL}</td>
+                <td>{s.food.nutrients.PROCNT}</td>
+                <td>{s.food.nutrients.FAT}</td>
+                <td><button type="button" className="btn btn-dark">+/-</button></td>
+              </tr>
+              ))}
+            </table>
+          </div>
         </div>
       );
     }
