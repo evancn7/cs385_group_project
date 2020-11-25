@@ -1,0 +1,77 @@
+/*start of nav bar styling*/
+#bar, footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 8vh;
+  padding: 0 2vw;
+  background: #A9A9A9;
+  color: #FFF;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+footer {
+  min-height: 5vh;
+  justify-content: space-around;
+  font-size: 0.75rem;
+}
+#bar a {
+  margin: 4px;
+  text-decoration: none;
+  color: #FFF;
+}
+#bar a:hover {
+  color: #000;
+}
+.active {
+  font-size: 150%;
+  color: #000;
+}
+.nav-links {
+  display: flex;
+  position: absolute;
+  z-index: 100;
+  top: 8vh;
+  left: 0;
+  height: 8vh;
+  width: 100vw;
+  font-size: 0.75rem;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(169, 169, 169, 0.95);
+  transform: translateX(-110%);
+  transition: 0.3s ease-in;
+}
+.nav-links-active {
+  transform: translateX(0%);
+}
+.logo {
+  display: flex;
+  width: 60vw;
+  justify-content: center;
+}
+.nav-contact {
+  display: flex;
+  width: 20vw;
+  justify-content: space-around;
+}
+.burger {
+  width: 20vw;
+  cursor: pointer;
+  justify-content: flex-start;
+}
+.burger div {
+  height: 2px;
+  width: 30px;
+  background: #FFF;
+  margin: 3px;
+  transition: all 0.5s ease-in-out;
+}
+/*animation of the menu burger*/
+.top-active {
+  transform: translateY(2.5px) rotate(135deg);
+}
+.bottom-active {
+  transform: translateY(-2.5px) rotate(-135deg);
+}
+/*end of nav bar styling*/

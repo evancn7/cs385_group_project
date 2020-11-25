@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./NavBar.css";
 
 class NavBar extends Component {
   render() {
@@ -6,9 +7,17 @@ class NavBar extends Component {
       <div class="NavBar">
       <nav id='bar'>
         <div class='burger'>
-            <div id='top'></div>
-            <div id='bottom'></div>
+          <div id='top'></div>
+          <div id='bottom'></div>
         </div>
+        <div>
+        Team Nickel
+        </div>
+        <ul class='nav-links'>
+          <li>Home</li>
+          <li>Basket</li>
+          <li>Statistics</li>
+        </ul>
       </nav>
       </div>
     );
