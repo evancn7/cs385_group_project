@@ -11,10 +11,14 @@ Landing Page:
 3. Add team logo to AppLogo.js component
 
 Main Page:
-1. code the API functionality to pull in food database
-2. add search box and search button to search the database (similar to spotfy)
+1. code the API functionality to pull in food database ****DONE****
+2. add search box and search button to search the database (similar to spotify)
 3. add search results components with a scroll bar
 4. add basket component to summarise items added
 
-Statistics Page:
+
+Basket Page:
 1.
+
+Statistics Page:
+1.start page
