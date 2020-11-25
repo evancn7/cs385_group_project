@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import components
+import NavBar from "./components/NavBar";
 
 class HomePage extends Component {
   constructor(props) {
@@ -45,6 +47,7 @@ class HomePage extends Component {
       );
     } else {
       return (
+        <NavBar/>
         <div className="HomePage" class="container-fluid">
         <input type="text" placeholder="Enter food item.."></input>&nbsp;
         <button type="button" className="btn btn">Search</button>
