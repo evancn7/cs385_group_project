@@ -49,7 +49,6 @@ class HomePage extends Component {
       return (
         <NavBar/>
         <div className="HomePage" class="container-fluid">
-        <NavBar/>
         <input type="text" placeholder="Enter food item.."></input>&nbsp;
         <button type="button" className="btn btn">Search</button>
         <table className="table table-sm table-bordered">
