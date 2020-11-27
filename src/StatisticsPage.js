@@ -39,4 +39,5 @@ class StatisticsPage extends Component {
     );
   }
 }
+
 export default StatisticsPage;
