@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import LandingPage from "./LandingPage";
 import HomePage from "./HomePage";
 import NavBar from "./components/NavBar";
-import "./App.css";
+import "./css/App.css";
 
 
 class App extends Component {
