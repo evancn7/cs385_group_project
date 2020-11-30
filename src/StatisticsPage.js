@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-// import components
-import NavBar from "./components/NavBar";
 
 
 class StatisticsPage extends Component {
@@ -8,7 +6,6 @@ class StatisticsPage extends Component {
     return (
       <div className="App">
 
-        <NavBar/>
 
         <div class="card" class="grey-bg container-fluid">
           <div class="card-content">
