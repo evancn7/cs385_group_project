@@ -8,6 +8,33 @@ import "./css/App.css";
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPageSelection: "None",
+      sidebar: false
+    };
+
+    this.setSideBar = this.setSideBar.bind(this);
+    this.basketPageClick = this.basketPageClick.bind(this);
+    this.statisticsPageClick = this.statisticsPageClick.bind(this);
+    this.homeButtonClick = this.homeButtonClick.bind(this);
+  }
+  setSideBar() {
+    this.setState({ sidebar : !this.state.sidebar });
+  }
+  homeButtonClick() {
+    this.setState({ currentPageSelection: "Home" });
+    this.setSideBar();
+  }
+  basketPageClick() {
+    this.setState({ currentPageSelection: "Basket" });
+    this.setSideBar();
+  }
+  statisticsPageClick() {
+    this.setState({ currentPageSelection: "Statistics" });
+    this.setSideBar();
+  }
   render() {
     return (
       <div className="App">
