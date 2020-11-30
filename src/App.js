@@ -5,6 +5,7 @@ import HomePage from "./HomePage";
 import BasketPage from "./BasketPage";
 import StatisticsPage from "./StatisticsPage";
 import "./css/App.css";
+import "./css/NavBar.css";
 
 
 class App extends Component {
