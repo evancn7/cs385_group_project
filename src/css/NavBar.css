@@ -26,6 +26,7 @@ footer {
   margin: 4px;
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
 }
 .active {
   font-size: 150%;
