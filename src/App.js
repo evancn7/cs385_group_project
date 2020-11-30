@@ -38,6 +38,22 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="NavBar">
+          <nav id="bar">
+            <div className="burger" onClick={this.setSideBar}>
+              <div className={this.state.sidebar ? "top-active" : "top"}></div>
+              <div className={this.state.sidebar ? "bottom-active" : "bottom"}></div>
+            </div>
+            <div className="page-title">
+              <h3>{this.state.currentPageSelection}</h3>
+            </div>
+            <ul className={this.state.sidebar ? "nav-links-active" : "nav-links"}>
+              <li className={this.state.currentPageSelection === "Home" ? "active" : ""} onClick={this.homeButtonClick}>Home</li>
+              <li className={this.state.currentPageSelection === "Basket" ? "active" : ""} onClick={this.basketPageClick}>Basket</li>
+              <li className={this.state.currentPageSelection === "Statistics" ? "active" : ""} onClick={this.statisticsPageClick}>Statistics</li>
+            </ul>
+          </nav>
+        </div>
 
         <LandingPage/>
 
