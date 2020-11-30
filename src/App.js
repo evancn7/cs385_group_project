@@ -56,6 +56,9 @@ class App extends Component {
         </div>
 
         <LandingPage/>
+        {this.state.currentPageSelection === "Home" && <HomePage />}
+        {this.state.currentPageSelection === "Basket" && <BasketPage />}
+        {this.state.currentPageSelection === "Statistics" && <StatisticsPage />}
 
       </div>
     );
