@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // import components
-import AppLogo from "./components/AppLogo";
-import LogInForm from "./components/LogInForm";
-import RegisterForm from "./components/RegisterForm";
-import NewAccountButton from "./components/NewAccountButton";
+import AppLogo from "../components/AppLogo";
+import LogInForm from "../components/LogInForm";
+import RegisterForm from "../components/RegisterForm";
+import NewAccountButton from "../components/NewAccountButton";
 
 
 class LandingPage extends Component {

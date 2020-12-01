@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import components
-import Basket from "./components/Basket";
+import Basket from "../components/Basket";
 
 class HomePage extends Component {
   constructor(props) {

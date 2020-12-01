@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // import components
-import LandingPage from "./LandingPage";
-import HomePage from "./HomePage";
-import BasketPage from "./BasketPage";
-import StatisticsPage from "./StatisticsPage";
+import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage";
+import BasketPage from "./pages/BasketPage";
+import StatisticsPage from "./pages/StatisticsPage";
 import "./css/App.css";
 import "./css/NavBar.css";
 
