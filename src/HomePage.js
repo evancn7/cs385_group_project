@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// import components
+import Basket from "./components/Basket";
 
 class HomePage extends Component {
   constructor(props) {
@@ -68,7 +70,16 @@ class HomePage extends Component {
               ))}
             </table>
           </div>
+          <h1>Basket.</h1>
+          <Basket
+            ProductArray={this.state.apiData}
+            CarbonFootPrintArray={this.state.carbonfootprint}
+            CaloriesArray={this.state.calories}
+            CostArray={this.state.cost}
+          />
         </div>
+
+
       );
     }
   }
