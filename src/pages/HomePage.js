@@ -14,15 +14,11 @@ class HomePage extends Component {
 
   async componentDidMount() {
     try {
-      const searchTerm = "chicken";
-      const API_ID = '9b339504';
-      const API_KEY = 'de03aa2242cdbbc05811e7f119dd82b4';
-      const API_URL =
-        `https://api.edamam.com/api/food-database/v2/parser?ingr=${searchTerm}&app_id=${API_ID}&app_key=${API_KEY}`;
+      const API_URL = "https://raw.githubusercontent.com/evancn7/NickelAPI/master/shopData.json";
       const response = await fetch(API_URL);
       const jsonResult = await response.json();
 
-      this.setState({ apiData: jsonResult.parsed });
+      this.setState({ apiData: jsonResult.shopData });
       this.setState({ isFetched: true });
     } catch (error) {
       this.setState({ isFetched: false });
