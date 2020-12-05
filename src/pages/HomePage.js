@@ -67,12 +67,7 @@ class HomePage extends Component {
             </table>
           </div>
           <h1>Basket.</h1>
-          <Basket
-            ProductArray={this.state.apiData}
-            CarbonFootPrintArray={this.state.carbonfootprint}
-            CaloriesArray={this.state.calories}
-            CostArray={this.state.cost}
-          />
+          <Basket userList={this.state.userList} />   
         </div>
 
 
