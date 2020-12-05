@@ -1,7 +1,7 @@
 Landing Page:
 1. Add login button functionality
     a. search database for user using the find object functionality
-    b. if user in database, then return main page through condition
+    b. if user in database, then return main page through condition ****DONE****
 
 2. Add Register button functionality
     a. add user to database(array) when user is succesful with registration
@@ -21,4 +21,7 @@ Basket Page:
 1.
 
 Statistics Page:
-1.start page
+1. add sample card for carbon
+2. add cards for other data gathered from basket
+3. add const props to get data passed down to basket
+4.
