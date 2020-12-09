@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import components
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage";
-import BasketPage from "./pages/BasketPage";
 import StatisticsPage from "./pages/StatisticsPage";
 import "./css/App.css";
 import "./css/NavBar.css";
@@ -17,7 +16,6 @@ class App extends Component {
     };
 
     this.setSideBar = this.setSideBar.bind(this);
-    this.basketPageClick = this.basketPageClick.bind(this);
     this.statisticsPageClick = this.statisticsPageClick.bind(this);
     this.homeButtonClick = this.homeButtonClick.bind(this);
   }
@@ -26,10 +24,6 @@ class App extends Component {
   }
   homeButtonClick() {
     this.setState({ currentPageSelection: "Home" });
-    this.setSideBar();
-  }
-  basketPageClick() {
-    this.setState({ currentPageSelection: "Basket" });
     this.setSideBar();
   }
   statisticsPageClick() {
@@ -50,14 +44,12 @@ class App extends Component {
             </div>
             <ul className={this.state.sidebar ? "nav-links-active" : "nav-links"}>
               <li className={this.state.currentPageSelection === "Home" ? "active" : ""} onClick={this.homeButtonClick}>Home</li>
-              <li className={this.state.currentPageSelection === "Basket" ? "active" : ""} onClick={this.basketPageClick}>Basket</li>
               <li className={this.state.currentPageSelection === "Statistics" ? "active" : ""} onClick={this.statisticsPageClick}>Statistics</li>
             </ul>
           </nav>
         </div>
 
         {this.state.currentPageSelection === "Home" && <HomePage />}
-        {this.state.currentPageSelection === "Basket" && <BasketPage />}
         {this.state.currentPageSelection === "Statistics" && <StatisticsPage />}
 
         <footer><span>Team Nickel</span><span>CS385</span></footer>
