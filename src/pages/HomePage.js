@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import components
+import SearchBox from "../components/SearchBox";
 import Basket from "../components/Basket";
 
 class HomePage extends Component {
@@ -14,7 +15,8 @@ class HomePage extends Component {
 
   async componentDidMount() {
     try {
-      const API_URL = "https://raw.githubusercontent.com/evancn7/NickelAPI/master/shopData.json";
+      const API_URL =
+        "https://raw.githubusercontent.com/evancn7/NickelAPI/master/shopData.json";
       const response = await fetch(API_URL);
       const jsonResult = await response.json();
 
