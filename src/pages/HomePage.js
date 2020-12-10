@@ -25,9 +25,6 @@ class HomePage extends Component {
       this.setState({ errorMsg: error });
     }
   }
-  clearArray(event) {
-    return this.setState({userList: []});
-  }
   render() {
     if (this.state.errorMsg) {
       return (
