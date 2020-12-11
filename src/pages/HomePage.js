@@ -11,6 +11,11 @@ class HomePage extends Component {
       isFetched: false,
       errorMsg: null
     };
+    this.onSearchBoxChange = this.onSearchBoxChange.bind(this);
+    this.onButtonClick = this.onButtonClick.bind(this);
+    this.onAddClick = this.onAddClick.bind(this);
+    this.onRemoveClick = this.onRemoveClick.bind(this);
+    this.clearArray = this.clearArray.bind(this);
   }
 
   async componentDidMount() {
@@ -26,6 +31,43 @@ class HomePage extends Component {
       this.setState({ isFetched: false });
       this.setState({ errorMsg: error });
     }
+  }
+  searchFilterFunction(searchTerm) {
+    return function (obj) {
+      let foodName = obj.name.toLowerCase();
+      return searchTerm !== "" && foodName.includes(searchTerm.toLowerCase());
+    };
+  }
+  onSearchBoxChange(event) {
+    this.setState({ searchTerm: event.target.value });
+  }
+  onButtonClick() {
+    this.setState({ searchTerm: "" });
+  }
+  findFoodByFoodID(foodID) {
+    return function (obj) {
+      return obj.foodID === foodID;
+    };
+  }
+  onAddClick(foodID) {
+    // console.log("Buy clicked on " + foodID.toString());
+    let foodItem = this.state.apiData.filter(this.findFoodByFoodID(foodID));
+    this.setState({ userList: this.state.userList.concat(foodItem) });
+    // console.log("add");
+    // console.log(this.state.userList);
+  }
+  onRemoveClick(foodID) {
+    var index = this.state.userList.filter(this.findFoodByFoodID(foodID));
+    if (index > -1) {
+      let tempUserListArray = this.state.userList;
+      tempUserListArray.splice(index, 1);
+      this.setState({ userList: tempUserListArray });
+      // console.log("remove");
+    }
+  }
+  clearArray() {
+    this.setState({ userList: [] });
+    // console.log("clear");
   }
   render() {
     if (this.state.errorMsg) {
