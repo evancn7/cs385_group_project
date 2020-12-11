@@ -131,11 +131,13 @@ class HomePage extends Component {
               </tbody>
             </table>
           </div>
-          <h1>Basket.</h1>
-          <Basket userList={this.state.userList} />   
+          <h3>Basket</h3>
+          <Basket
+            userList={this.state.userList}
+            onClick={() => this.onRemoveClick()}
+            onClear={this.clearArray}
+          />
         </div>
-
-
       );
     }
   }
