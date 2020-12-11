@@ -9,6 +9,8 @@ class Basket extends Component {
   }
   render() {
     const userList = this.props.userList;
+    const onRemoveClick = this.props.onClick;
+    const onClear = this.props.onClear;
     return (
       <div className="Basket">
         <table className="table table-sm table-bordered container-fluid">
@@ -30,16 +32,35 @@ class Basket extends Component {
                 <td>{a.protein}</td>
                 <td>{a.fat}</td>
                 <td>{a.carbon}</td>
-                <td></td>
+                <td>
+                  <button className="btn btn-danger" onClick={onRemoveClick}>
+                    Remove
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <div>Total Calories: {userList.reduce(this.totalCalories, 0)}</div>
-        
-        <div>Total Carbon: {userList.reduce(this.totalCarbon, 0)}</div>
+        {userList.length > 0 && (
+          <button
+            onClick={onClear}
+            type="button"
+            classname="btn btn-outline-danger"
+          >
+            Clear All
+          </button>
+        )}
 
+        <div>Total Calories: {userList.reduce(this.totalCalories, 0)}</div>
+        <div>
+          Total Carbon:{" "}
+          {userList.length == 0
+            ? 0
+            : Math.floor(
+                userList.reduce(this.totalCarbon, 0) / userList.length
+              )}
+        </div>
       </div>
     );
   }
