@@ -9,7 +9,9 @@ class HomePage extends Component {
     this.state = {
       apiData: [],
       isFetched: false,
-      errorMsg: null
+      errorMsg: null,
+      searchTerm: "",
+      userList: [],
     };
     this.onSearchBoxChange = this.onSearchBoxChange.bind(this);
     this.onButtonClick = this.onButtonClick.bind(this);
