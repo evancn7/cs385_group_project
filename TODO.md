@@ -10,24 +10,25 @@ Landing Page:
 
 Home Page:
 1. code the API functionality to pull in food database ****DONE****
-2. add search box and search button to search the database (similar to spotify)
-3. add search results components with a scroll bar
+2. add search box and search button to search the database ****DONE****
+3. add search results components with a scroll bar ****DONE****
 4. add basket component to summarise items added ****DONE****
 
 
 Statistics Page:
-1. add sample card for carbon
+1. add sample card for carbon ****DONE****
 2. add cards for other data gathered from basket
 3. add const props to get data passed down to basket
 
-Miscelaneous:
-1. Add logo to tab, create images folder and link to html icon tag
-2. Add title in index.html
-3. create landing page css file and move styles from app.css gathered
+Miscellaneous:
+1. Add logo to tab, create images folder and link to html icon tag ****DONE****
+2. Add title in index.html ****DONE****
+3. create landing page css file and move styles from app.css gathered ****DONE****
 4. Possibly need to rename existing App.js to Main.js as App.js will contain
 firebase authentication and landing page
-5. Remove unused BasketPage
+5. Remove unused BasketPage ****done****
+6. Add functionality for the realtime database to save user array
 
 Questions for Peter:
-Does App.js have to be the main file inserted into DOM by index.js? (by convention)
-How does a  new user register using firebase?
+Does App.js have to be the main file inserted into DOM by index.js? (by convention) ****DONE****
+How does a new user register using firebase? ****DONE****
