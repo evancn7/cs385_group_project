@@ -125,7 +125,7 @@ class HomePage extends Component {
                           className="btn btn-success"
                           onClick={() => this.onAddClick(a.foodID)}
                         >
-                          Add
+                          +
                         </button>
                       </td>
                     </tr>

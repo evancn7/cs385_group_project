@@ -34,7 +34,7 @@ class Basket extends Component {
                 <td>{a.carbon}</td>
                 <td>
                   <button className="btn btn-danger" onClick={onRemoveClick}>
-                    Remove
+                    -
                   </button>
                 </td>
               </tr>
