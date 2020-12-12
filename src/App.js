@@ -60,7 +60,7 @@ class App extends Component {
         {this.state.currentPageSelection === "Home" && <HomePage />}
         {this.state.currentPageSelection === "Statistics" && <StatisticsPage />}
 
-        <footer><span>Team Nickel</span><span>CS385</span></footer>
+        {/*<footer><span>Team Nickel</span><span>CS385</span></footer>*/}
       </div>
     );
   }
