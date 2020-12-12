@@ -1,0 +1,4 @@
+/* keep table in line even when empty */
+th, td {
+  width: 15%;
+}

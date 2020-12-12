@@ -11,36 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.app-logo, .new-account-container {
-  text-align: center;
-  height: 15vh;
-  padding: 25px;
-  border: solid;
-  margin: 10px;
-}
-
-.log-in-container, .register-container {
-  height: 60vh;
-  padding: 25px;
-  border: solid;
-  margin: 10px;
-}
-
-.log-in-button-container, .register-button-container {
-  border: solid;
-  display: flex;
-  justify-content: center;
-}
-
-.form-container {
-  border: solid;
-  padding: 10px;
-}
-
-.user-input-container {
-}
-/* keep table in line even when empty */
-th, td {
-  width: 15%;
-}

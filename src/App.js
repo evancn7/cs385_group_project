@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // import components
-import LandingPage from "./pages/LandingPage";
-import HomePage from "./pages/HomePage";
-import StatisticsPage from "./pages/StatisticsPage";
-// import styles
+import LandingPage from "./views/LandingPage";
+import HomePage from "./views/HomePage";
+import StatisticsPage from "./views/StatisticsPage";
+// import stylesheets
 import "./css/App.css";
 import "./css/NavBar.css";
 
