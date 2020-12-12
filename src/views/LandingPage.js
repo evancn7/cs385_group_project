@@ -4,6 +4,8 @@ import AppLogo from "../components/AppLogo";
 import LogInForm from "../components/LogInForm";
 import RegisterForm from "../components/RegisterForm";
 import NewAccountButton from "../components/NewAccountButton";
+// import stylesheets
+import "../css/LandingPage.css";
 
 
 class LandingPage extends Component {

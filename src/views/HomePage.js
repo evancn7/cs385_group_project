@@ -2,6 +2,8 @@ import React, { Component } from "react";
 // import components
 import SearchBox from "../components/SearchBox";
 import Basket from "../components/Basket";
+// import stylesheets
+import "../css/HomePage.css";
 
 class HomePage extends Component {
   constructor(props) {
