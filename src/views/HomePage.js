@@ -166,7 +166,7 @@ class HomePage extends Component {
           <h3>Basket</h3>
           <Basket
             userList={this.state.userList}
-            onClick={() => this.onRemoveClick()}
+            onClick={this.onRemoveClick}
             onClear={this.clearArray}
             totalCalories={this.totalCalories}
             totalCarbon={this.totalCarbon}
