@@ -28,7 +28,7 @@ class Basket extends Component {
                 <td>{a.cals}</td>
                 <td>{a.protein}</td>
                 <td>{a.fat}</td>
-                <td>{(a.carbon)}</td>
+                <td>{a.carbon}</td>
                 <td>
                   <button className="btn btn-danger" onClick={onRemoveClick(a.foodID)}>
                     -
