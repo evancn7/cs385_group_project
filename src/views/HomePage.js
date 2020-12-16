@@ -58,7 +58,15 @@ class HomePage extends Component {
   onAddClick(foodID) {
     // console.log("Buy clicked on " + foodID.toString());
     let foodItem = this.state.apiData.filter(this.findFoodByFoodID(foodID));
-    this.setState({ userList: this.state.userList.concat(foodItem) });
+    let ind = this.state.userList.findIndex(this.findFoodByFoodID(foodID));
+    // if item exists then increment the qty property by one
+    if (ind >= 0) {
+      console.log(this.state.userList[ind]);
+      this.state.userList[ind].qty = this.state.userList[ind].qty + 1;
+      this.forceUpdate();
+      // console.log(this.state.userList.findIndex(this.findFoodByFoodID(foodID)));
+    }
+    else this.setState({ userList: this.state.userList.concat(foodItem) });
     // console.log("add");
     // console.log(this.state.userList);
   }
@@ -116,6 +124,7 @@ class HomePage extends Component {
                   <th>Fat</th>
                   <th>Carbon</th>
                   <th>Qty</th>
+                  <th>+</th>
                 </tr>
               </thead>
               <tbody>
@@ -128,6 +137,7 @@ class HomePage extends Component {
                       <td>{a.protein}</td>
                       <td>{a.fat}</td>
                       <td>{a.carbon}</td>
+                      <td>1</td>
                       <td>
                         <button
                           className="btn btn-success"
