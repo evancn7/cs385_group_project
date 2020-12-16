@@ -19,16 +19,18 @@ class Basket extends Component {
               <th>Fat</th>
               <th>Carbon</th>
               <th>Qty</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {userList.map((a) => (
               <tr key={a.foodID}>
                 <td>{a.name}</td>
-                <td>{a.cals}</td>
-                <td>{a.protein}</td>
-                <td>{a.fat}</td>
+                <td>{a.cals*a.qty}</td>
+                <td>{(a.protein*a.qty).toFixed(1)}</td>
+                <td>{(a.fat*a.qty).toFixed(1)}</td>
                 <td>{a.carbon}</td>
+                <td>{a.qty}</td>
                 <td>
                   <button className="btn btn-danger" onClick={() => onRemoveClick(a.foodID)}>
                     -
@@ -55,7 +57,7 @@ class Basket extends Component {
           {userList.length == 0
             ? 0
             : Math.floor(
-                userList.reduce(totalCarbon, 0) / userList.reduce(totalQty)
+                userList.reduce(totalCarbon, 0) / userList.reduce(totalQty, 0)
               )}
         </div>
       </div>
