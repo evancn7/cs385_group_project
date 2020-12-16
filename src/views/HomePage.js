@@ -63,12 +63,20 @@ class HomePage extends Component {
     // console.log(this.state.userList);
   }
   onRemoveClick(foodID) {
-    var index = this.state.userList.filter(this.findFoodByFoodID(foodID));
-    if (index > -1) {
+    let ind = this.state.userList.findIndex(this.findFoodByFoodID(foodID));
+    console.log(ind);
+    console.log(this.state.userList[ind]);
+    let foodQty = this.state.userList[ind].qty;
+    if (foodQty >= 2) {
+      console.log(this.state.userList[ind]);
+      this.state.userList[ind].qty = this.state.userList[ind].qty - 1;
+      this.forceUpdate();
+      // console.log(this.state.userList.findIndex(this.findFoodByFoodID(foodID)));
+      console.log("attempt");
+    } else {
       let tempUserListArray = this.state.userList;
-      tempUserListArray.splice(index, 1);
+      tempUserListArray.splice(ind, 1);
       this.setState({ userList: tempUserListArray });
-      // console.log("remove");
     }
   }
   clearArray() {
@@ -80,6 +88,10 @@ class HomePage extends Component {
   }
   totalCarbon(acc, obj) {
     return acc + obj.carbon;
+  }
+
+  totalQty(acc, obj) {
+    return acc + obj.qty;
   }
   render() {
     if (this.state.errorMsg) {
@@ -148,6 +160,7 @@ class HomePage extends Component {
             onClear={this.clearArray}
             totalCalories={this.totalCalories}
             totalCarbon={this.totalCarbon}
+            totalQty={this.totalQty}
           />
         </div>
       );
