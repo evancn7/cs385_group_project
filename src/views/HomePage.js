@@ -20,6 +20,8 @@ class HomePage extends Component {
     this.onAddClick = this.onAddClick.bind(this);
     this.onRemoveClick = this.onRemoveClick.bind(this);
     this.clearArray = this.clearArray.bind(this);
+    this.totalCalories = this.totalCalories.bind(this);
+    this.totalCarbon = this.totalCarbon.bind(this);
   }
 
   async componentDidMount() {
@@ -72,6 +74,12 @@ class HomePage extends Component {
   clearArray() {
     this.setState({ userList: [] });
     // console.log("clear");
+  }
+  totalCalories(acc, obj) {
+    return acc + obj.cals;
+  }
+  totalCarbon(acc, obj) {
+    return acc + obj.carbon;
   }
   render() {
     if (this.state.errorMsg) {
@@ -138,6 +146,8 @@ class HomePage extends Component {
             userList={this.state.userList}
             onClick={() => this.onRemoveClick()}
             onClear={this.clearArray}
+            totalCalories={this.totalCalories}
+            totalCarbon={this.totalCarbon}
           />
         </div>
       );

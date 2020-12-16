@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 
 class Basket extends Component {
-  totalCalories(acc, obj) {
-    return acc + obj.cals;
-  }
-  totalCarbon(acc, obj) {
-    return acc + obj.carbon;
-  }
   render() {
     const userList = this.props.userList;
     const onRemoveClick = this.props.onClick;
     const onClear = this.props.onClear;
+    const totalCalories = this.props.totalCalories;
+    const totalCarbon = this.props.totalCarbon;
     return (
       <div className="Basket">
         <table className="table table-sm table-bordered container-fluid">
@@ -52,13 +48,13 @@ class Basket extends Component {
           </button>
         )}
 
-        <div>Total Calories: {userList.reduce(this.totalCalories, 0)}</div>
+        <div>Total Calories: {userList.reduce(totalCalories, 0)}</div>
         <div>
           Total Carbon:{" "}
           {userList.length == 0
             ? 0
             : Math.floor(
-                userList.reduce(this.totalCarbon, 0) / userList.length
+                userList.reduce(totalCarbon, 0) / userList.length
               )}
         </div>
       </div>
