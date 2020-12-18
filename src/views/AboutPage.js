@@ -3,10 +3,6 @@ import "../css/AboutPage.css";
 
 class AboutPage extends Component {
   render() {
-    const userList = this.props.userList;
-    const totalCalories = this.props.totalCalories;
-    const totalCarbon = this.props.totalCarbon;
-    const totalQty = this.props.totalQty;
     return (
       <div className="AboutPage">
         <div className="main">
