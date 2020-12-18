@@ -10,6 +10,15 @@ class Basket extends Component {
     const totalQty = this.props.totalQty;
     return (
       <div className="Basket">
+        {userList.length > 0 && (
+          <button
+            onClick={onClear}
+            type="button"
+            classname="btn btn-outline-danger"
+          >
+            Clear All
+          </button>
+        )}
         <table className="table table-sm table-bordered container-fluid">
           <thead className="thead-light">
             <tr>
@@ -26,13 +35,16 @@ class Basket extends Component {
             {userList.map((a) => (
               <tr key={a.foodID}>
                 <td>{a.name}</td>
-                <td>{a.cals*a.qty}</td>
-                <td>{(a.protein*a.qty).toFixed(1)}</td>
-                <td>{(a.fat*a.qty).toFixed(1)}</td>
+                <td>{a.cals * a.qty}</td>
+                <td>{(a.protein * a.qty).toFixed(1)}</td>
+                <td>{(a.fat * a.qty).toFixed(1)}</td>
                 <td>{a.carbon}</td>
                 <td>{a.qty}</td>
                 <td>
-                  <button className="btn btn-danger" onClick={() => onRemoveClick(a.foodID)}>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => onRemoveClick(a.foodID)}
+                  >
                     -
                   </button>
                 </td>
@@ -41,25 +53,15 @@ class Basket extends Component {
           </tbody>
         </table>
 
-        {userList.length > 0 && (
-          <button
-            onClick={onClear}
-            type="button"
-            classname="btn btn-outline-danger"
-          >
-            Clear All
-          </button>
-        )}
-
-        <div>Total Calories: {userList.reduce(totalCalories, 0)}</div>
+        {/*<div>Total Calories: {userList.reduce(totalCalories, 0)}</div>
         <div>
-          Total Carbon:{" "}
+          Average Carbon:{" "}
           {userList.length == 0
             ? 0
             : Math.floor(
                 userList.reduce(totalCarbon, 0) / userList.reduce(totalQty, 0)
               )}
-        </div>
+        </div>*/}
       </div>
     );
   }
