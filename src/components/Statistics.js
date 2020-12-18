@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomePage from "./HomePage";
+import HomePage from "../views/HomePage";
 
 class StatisticsPage extends Component {
   render() {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import components
 import SearchBox from "../components/SearchBox";
 import Basket from "../components/Basket";
-import Statistics from "./StatisticsPage";
+import Statistics from "../components/Statistics";
 // import stylesheets
 import "../css/HomePage.css";
 
