@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import components
 import SearchBox from "../components/SearchBox";
 import Basket from "../components/Basket";
+import Statistics from "./StatisticsPage";
 // import stylesheets
 import "../css/HomePage.css";
 
@@ -65,8 +66,7 @@ class HomePage extends Component {
       this.state.userList[ind].qty = this.state.userList[ind].qty + 1;
       this.forceUpdate();
       // console.log(this.state.userList.findIndex(this.findFoodByFoodID(foodID)));
-    }
-    else this.setState({ userList: this.state.userList.concat(foodItem) });
+    } else this.setState({ userList: this.state.userList.concat(foodItem) });
     // console.log("add");
     // console.log(this.state.userList);
   }
@@ -92,10 +92,10 @@ class HomePage extends Component {
     // console.log("clear");
   }
   totalCalories(acc, obj) {
-    return acc + obj.cals;
+    return acc + obj.cals * obj.qty;
   }
   totalCarbon(acc, obj) {
-    return acc + obj.carbon;
+    return acc + obj.carbon * obj.qty;
   }
 
   totalQty(acc, obj) {
@@ -119,7 +119,7 @@ class HomePage extends Component {
       );
     } else {
       return (
-        <div className="HomePage container-fluid">
+        <div className="HomePage">
           <SearchBox
             onChange={this.onSearchBoxChange}
             searchTerm={this.state.searchTerm}
@@ -136,7 +136,7 @@ class HomePage extends Component {
                   <th>Fat</th>
                   <th>Carbon</th>
                   <th>Qty</th>
-                  <th>+</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -172,6 +172,13 @@ class HomePage extends Component {
             totalCarbon={this.totalCarbon}
             totalQty={this.totalQty}
           />
+          <h3>Statistics</h3>
+            <Statistics
+              userList={this.state.userList}
+              totalCalories={this.totalCalories}
+              totalCarbon={this.totalCarbon}
+              totalQty={this.totalQty}
+            />
         </div>
       );
     }
