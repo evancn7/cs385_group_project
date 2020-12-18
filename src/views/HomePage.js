@@ -57,30 +57,30 @@ class HomePage extends Component {
     };
   }
   onAddClick(foodID) {
-    // console.log("Buy clicked on " + foodID.toString());
     let foodItem = this.state.apiData.filter(this.findFoodByFoodID(foodID));
+    // find the index of the fooditem in the array and store it in variable
     let ind = this.state.userList.findIndex(this.findFoodByFoodID(foodID));
     // if item exists then increment the qty property by one
     if (ind >= 0) {
       console.log(this.state.userList[ind]);
       this.state.userList[ind].qty = this.state.userList[ind].qty + 1;
+      // update the state so basket can pull new value
       this.forceUpdate();
-      // console.log(this.state.userList.findIndex(this.findFoodByFoodID(foodID)));
+      // if item not in array then add to array
     } else this.setState({ userList: this.state.userList.concat(foodItem) });
     // console.log("add");
-    // console.log(this.state.userList);
   }
   onRemoveClick(foodID) {
+    // find the index of the fooditem in the array and store it in variable
     let ind = this.state.userList.findIndex(this.findFoodByFoodID(foodID));
-    console.log(ind);
-    console.log(this.state.userList[ind]);
+    // store qty property in a variable to manipulate in condition
     let foodQty = this.state.userList[ind].qty;
+    // if qty is 1 then it removes in else statement, if > 1 then decrements
     if (foodQty >= 2) {
-      console.log(this.state.userList[ind]);
       this.state.userList[ind].qty = this.state.userList[ind].qty - 1;
+      // update the state so basket can pull new value
       this.forceUpdate();
-      // console.log(this.state.userList.findIndex(this.findFoodByFoodID(foodID)));
-      console.log("attempt");
+      // console.log("attempt");
     } else {
       let tempUserListArray = this.state.userList;
       tempUserListArray.splice(ind, 1);

@@ -10,6 +10,7 @@ class Basket extends Component {
     const totalQty = this.props.totalQty;
     return (
       <div className="Basket">
+      {/* only render when the basket actually has something to clear */}
         {userList.length > 0 && (
           <button
             onClick={onClear}
@@ -32,7 +33,9 @@ class Basket extends Component {
             </tr>
           </thead>
           <tbody>
-            {userList.map((a) => (
+          {/* each object is rendered from array and those affected by
+            quantity are rendered as such */}
+            {userList.map((a) => (        
               <tr key={a.foodID}>
                 <td>{a.name}</td>
                 <td>{a.cals * a.qty}</td>
@@ -52,16 +55,6 @@ class Basket extends Component {
             ))}
           </tbody>
         </table>
-
-        {/*<div>Total Calories: {userList.reduce(totalCalories, 0)}</div>
-        <div>
-          Average Carbon:{" "}
-          {userList.length == 0
-            ? 0
-            : Math.floor(
-                userList.reduce(totalCarbon, 0) / userList.reduce(totalQty, 0)
-              )}
-        </div>*/}
       </div>
     );
   }
