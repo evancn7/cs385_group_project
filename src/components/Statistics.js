@@ -9,12 +9,28 @@ class StatisticsPage extends Component {
     const totalQty = this.props.totalQty;
     return (
       <div className="StatisticsPage">
+      <div class="card" class="grey-bg container-fluid">
+        <div class="card-content">
+          <div class="card-body">
+            <div class="media d-flex">
+              <div class="align-self-center">
+                <h3 class="font-large-2 float-left">Calories</h3>
+              </div>
+              <div class="media-body text-right">
+                <h3>{userList.reduce(totalCalories, 0)}</h3>
+                <span>kCal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
         <div class="card" class="grey-bg container-fluid">
           <div class="card-content">
             <div class="card-body">
               <div class="media d-flex">
                 <div class="align-self-center">
-                  <h3 class="font-large-2 float-left">Your Carbon Rating</h3>
+                  <h3 class="font-large-2 float-left">Carbon Rating</h3>
                 </div>
                 <div class="media-body text-right">
                   <h3>{userList.length == 0
@@ -60,6 +76,7 @@ class StatisticsPage extends Component {
             </div>
           </div>
         </div>
+
       </div>
     );
   }
