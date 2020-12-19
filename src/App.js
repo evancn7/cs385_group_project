@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import myFirebase from './myFirebaseConfig';
 // import components
-import LandingPage from "./views/LandingPage";
 import HomePage from "./views/HomePage";
 import StatisticsPage from "./views/StatisticsPage";
 // import stylesheets
