@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import components
 import SearchBox from "../components/SearchBox";
 import Basket from "../components/Basket";
+import Statistics from "../components/Statistics";
 // import stylesheets
 import "../css/HomePage.css";
 
@@ -20,6 +21,8 @@ class HomePage extends Component {
     this.onAddClick = this.onAddClick.bind(this);
     this.onRemoveClick = this.onRemoveClick.bind(this);
     this.clearArray = this.clearArray.bind(this);
+    this.totalCalories = this.totalCalories.bind(this);
+    this.totalCarbon = this.totalCarbon.bind(this);
   }
 
   async componentDidMount() {
@@ -54,24 +57,49 @@ class HomePage extends Component {
     };
   }
   onAddClick(foodID) {
-    // console.log("Buy clicked on " + foodID.toString());
     let foodItem = this.state.apiData.filter(this.findFoodByFoodID(foodID));
-    this.setState({ userList: this.state.userList.concat(foodItem) });
+    // find the index of the fooditem in the array and store it in variable
+    let ind = this.state.userList.findIndex(this.findFoodByFoodID(foodID));
+    // if item exists then increment the qty property by one
+    if (ind >= 0) {
+      console.log(this.state.userList[ind]);
+      this.state.userList[ind].qty = this.state.userList[ind].qty + 1;
+      // update the state so basket can pull new value
+      this.forceUpdate();
+      // if item not in array then add to array
+    } else this.setState({ userList: this.state.userList.concat(foodItem) });
     // console.log("add");
-    // console.log(this.state.userList);
   }
   onRemoveClick(foodID) {
-    var index = this.state.userList.filter(this.findFoodByFoodID(foodID));
-    if (index > -1) {
+    // find the index of the fooditem in the array and store it in variable
+    let ind = this.state.userList.findIndex(this.findFoodByFoodID(foodID));
+    // store qty property in a variable to manipulate in condition
+    let foodQty = this.state.userList[ind].qty;
+    // if qty is 1 then it removes in else statement, if > 1 then decrements
+    if (foodQty >= 2) {
+      this.state.userList[ind].qty = this.state.userList[ind].qty - 1;
+      // update the state so basket can pull new value
+      this.forceUpdate();
+      // console.log("attempt");
+    } else {
       let tempUserListArray = this.state.userList;
-      tempUserListArray.splice(index, 1);
+      tempUserListArray.splice(ind, 1);
       this.setState({ userList: tempUserListArray });
-      // console.log("remove");
     }
   }
   clearArray() {
     this.setState({ userList: [] });
     // console.log("clear");
+  }
+  totalCalories(acc, obj) {
+    return acc + obj.cals * obj.qty;
+  }
+  totalCarbon(acc, obj) {
+    return acc + obj.carbon * obj.qty;
+  }
+
+  totalQty(acc, obj) {
+    return acc + obj.qty;
   }
   render() {
     if (this.state.errorMsg) {
@@ -91,7 +119,7 @@ class HomePage extends Component {
       );
     } else {
       return (
-        <div className="HomePage container-fluid">
+        <div className="HomePage">
           <SearchBox
             onChange={this.onSearchBoxChange}
             searchTerm={this.state.searchTerm}
@@ -108,6 +136,7 @@ class HomePage extends Component {
                   <th>Fat</th>
                   <th>Carbon</th>
                   <th>Qty</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -120,6 +149,7 @@ class HomePage extends Component {
                       <td>{a.protein}</td>
                       <td>{a.fat}</td>
                       <td>{a.carbon}</td>
+                      <td>1</td>
                       <td>
                         <button
                           className="btn btn-success"
@@ -136,9 +166,19 @@ class HomePage extends Component {
           <h3>Basket</h3>
           <Basket
             userList={this.state.userList}
-            onClick={() => this.onRemoveClick()}
+            onClick={this.onRemoveClick}
             onClear={this.clearArray}
+            totalCalories={this.totalCalories}
+            totalCarbon={this.totalCarbon}
+            totalQty={this.totalQty}
           />
+          <h3>Statistics</h3>
+            <Statistics
+              userList={this.state.userList}
+              totalCalories={this.totalCalories}
+              totalCarbon={this.totalCarbon}
+              totalQty={this.totalQty}
+            />
         </div>
       );
     }
