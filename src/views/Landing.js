@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Firebase from 'firebase';
 // import components
 import Login from '../components/Login';
-import Logout from '../components/Logout';
 import App from '../App';
 
 
@@ -28,7 +27,6 @@ class Landing extends Component {
     return (
       <div className='Landing'>
         {this.state.authenticated && <App />}
-        {this.state.authenticated && <Logout />}
         {!this.state.authenticated && <Login />}
       </div>
     );

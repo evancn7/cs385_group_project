@@ -3,6 +3,7 @@ import myFirebase from './myFirebaseConfig';
 // import components
 import HomePage from "./views/HomePage";
 import AboutPage from "./views/AboutPage";
+import Logout from './components/Logout';
 // import stylesheets
 import "./css/App.css";
 import "./css/NavBar.css";
@@ -45,14 +46,15 @@ class App extends Component {
               <div className={this.state.sidebar ? "top-active" : "top"}></div>
               <div className={this.state.sidebar ? "bottom-active" : "bottom"}></div>
             </div>
-            <div className="page-title">
+            {/*}<div className="page-title">
               <h3>{this.state.currentPageSelection}</h3>
-            </div>
+            </div>*/}
             {/* ? operator used to toggle the sliding sidebar, depending on state class changed */}
             <ul className={this.state.sidebar ? "nav-links-active" : "nav-links"}>
               <li className={this.state.currentPageSelection === "Home" ? "active" : ""} onClick={this.homeButtonClick}>Home</li>
               <li className={this.state.currentPageSelection === "About" ? "active" : ""} onClick={this.AboutPageClick}>About</li>
             </ul>
+            <Logout />
           </nav>
         </div>
 
