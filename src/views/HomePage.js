@@ -163,7 +163,6 @@ class HomePage extends Component {
               </tbody>
             </table>
           </div>
-          <h3>Basket</h3>
           <Basket
             userList={this.state.userList}
             onClick={this.onRemoveClick}
@@ -172,7 +171,6 @@ class HomePage extends Component {
             totalCarbon={this.totalCarbon}
             totalQty={this.totalQty}
           />
-          <h3>Statistics</h3>
             <Statistics
               userList={this.state.userList}
               totalCalories={this.totalCalories}

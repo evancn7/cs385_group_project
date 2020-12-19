@@ -1,8 +1,12 @@
+.HomePage {
+  margin: 0 5vw;
+}
 /* keep table in line even when empty */
 th, td {
   width: 15%;
 }
-.search-results {
+.search-results, .Basket {
   height: 40vh;
-  overflow-y: scroll;
+  overflow-y: auto;
+  margin-bottom: 20px;
 }
