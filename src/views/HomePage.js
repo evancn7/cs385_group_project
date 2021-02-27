@@ -163,6 +163,7 @@ class HomePage extends Component {
               </tbody>
             </table>
           </div>
+          {this.state.userList.length > 0 && <h3>Basket</h3> }
           <Basket
             userList={this.state.userList}
             onClick={this.onRemoveClick}

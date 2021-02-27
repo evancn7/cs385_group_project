@@ -11,9 +11,6 @@ class Basket extends Component {
     return (
       <div className="Basket">
         {/* only render when the basket actually has something to clear */}
-        <div className="basket-header">
-          {userList.length > 0 && <h3>Basket</h3>}
-        </div>
         <table className="table table-sm table-bordered">
           <tbody>
             {/* each object is rendered from array and those affected by
