@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import * as FaIcons from "react-icons/fa";
 import HomePage from "../views/HomePage";
+import "../css/Statistics.css";
 
 class StatisticsPage extends Component {
   render() {
@@ -7,6 +9,7 @@ class StatisticsPage extends Component {
     const totalCalories = this.props.totalCalories;
     const totalCarbon = this.props.totalCarbon;
     const totalQty = this.props.totalQty;
+    const carbonResult = Math.floor(userList.reduce(totalCarbon, 0) / userList.reduce(totalQty, 0));
     if (userList.length > 0) {
       return (
         <div className="Statistics">
@@ -15,7 +18,10 @@ class StatisticsPage extends Component {
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="align-self-center">
-                    <h3 class="font-large-2 float-left">Calories</h3>
+                    <h3 class="font-large-2 float-left">
+                      <FaIcons.FaBurn />
+                      &nbsp;Calories
+                    </h3>
                   </div>
                   <div class="media-body text-right">
                     <h3>{userList.reduce(totalCalories, 0)}</h3>
@@ -31,17 +37,15 @@ class StatisticsPage extends Component {
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="align-self-center">
-                    <h3 class="font-large-2 float-left">Carbon Rating</h3>
+                    <h3 class="font-large-2 float-left">
+                      <FaIcons.FaRecycle />
+                      &nbsp;Carbon Rating
+                    </h3>
                   </div>
                   <div class="media-body text-right">
-                    <h3>
-                      {userList.length == 0
-                        ? 0
-                        : Math.floor(
-                            userList.reduce(totalCarbon, 0) /
-                              userList.reduce(totalQty, 0)
-                          )}
-                    </h3>
+                  {carbonResult >= 8 && <h3>High</h3>}
+                  {(carbonResult > 4 && carbonResult < 8) && <h3>Medium</h3>}
+                  {carbonResult <= 4 && <h3>Low</h3>}
                     <span>Carbon Emissions</span>
                   </div>
                 </div>
@@ -54,7 +58,10 @@ class StatisticsPage extends Component {
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="align-self-center">
-                    <h3 class="font-large-2 float-left">Run</h3>
+                    <h3 class="font-large-2 float-left">
+                      <FaIcons.FaRunning />
+                      &nbsp;Run
+                    </h3>
                   </div>
                   <div class="media-body text-right">
                     <h3>
@@ -72,7 +79,10 @@ class StatisticsPage extends Component {
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="align-self-center">
-                    <h3 class="font-large-2 float-left">Cycle</h3>
+                    <h3 class="font-large-2 float-left">
+                      <FaIcons.FaBicycle />
+                      &nbsp;Cycle
+                    </h3>
                   </div>
                   <div class="media-body text-right">
                     <h3>
@@ -87,7 +97,7 @@ class StatisticsPage extends Component {
         </div>
       );
     } else {
-      return <div className="Statistics"></div>
+      return <div className="Statistics"></div>;
     }
   }
 }
