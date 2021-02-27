@@ -54,6 +54,7 @@ class App extends Component {
               <li className={this.state.currentPageSelection === "Home" ? "active" : ""} onClick={this.homeButtonClick}>Home</li>
               <li className={this.state.currentPageSelection === "About" ? "active" : ""} onClick={this.AboutPageClick}>About</li>
             </ul>
+            <div className="name">Nickel</div>
             <Logout />
           </nav>
         </div>
